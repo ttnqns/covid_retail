@@ -1,0 +1,37 @@
+<%= form_with(model: orden) do |form| %>
+  <% if orden.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(orden.errors.count, "error") %> prohibited this orden from being saved:</h2>
+
+      <ul>
+        <% orden.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :producto_id, style: "display: block" %>
+    <%= form.text_field :producto_id %>
+  </div>
+
+  <div>
+    <%= form.label :cliente_id, style: "display: block" %>
+    <%= form.text_field :cliente_id %>
+  </div>
+
+  <div>
+    <%= form.label :tipoPago_id, style: "display: block" %>
+    <%= form.text_field :tipoPago_id %>
+  </div>
+
+  <div>
+    <%= form.label :monto_total, style: "display: block" %>
+    <%= form.number_field :monto_total %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
